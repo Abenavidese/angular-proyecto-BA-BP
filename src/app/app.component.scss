@@ -1,0 +1,14 @@
+header {
+  background-color: #1c1c1c; /* Color de fondo para el encabezado */
+  color: #e0e0e0; /* Color del texto */
+  font-family: Arial, sans-serif; /* Familia de fuentes */
+  padding: 10px; /* Añade algo de espacio alrededor del menú */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* Altura mínima de la ventana menos la altura del encabezado */
+  background-color: #1c1c1c; /* Color de fondo para el contenido principal */
+}
