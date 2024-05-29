@@ -1,13 +1,15 @@
-<div class="contenedor">
-    <div class="tarjeta">
-      <h2 class="centrar-texto mb-4">Eliminar Libro</h2>
-      <form>
-        <div class="grupo-form mb-4">
-          <label for="eliminar-id">ID del Libro:</label>
-          <input type="text" class="campo-formulario" id="eliminar-id" placeholder="Ingrese el ID del libro a eliminar">
-        </div>
-        <button type="submit" class="btn-peligro">Eliminar Libro</button>
-      </form>
-    </div>
-  </div>
-  
+<header>
+  <app-home></app-home>
+</header>
+<div>
+  <ul>
+      @for (book of task; track book.id) {
+          <li><strong>Titulo: </strong>{{book.title}} :: <span> <strong>Genero: </strong>{{book.genre}}</span> :: <span><strong>Autor: </strong>{{book.author}}</span><br>
+          <span> <strong>Descripcion: </strong>{{book.description}}</span></li>
+          <button (click)="borrar(book.id)">Borrar</button><br><br>
+      }
+  </ul>
+</div>
+
+
+ 

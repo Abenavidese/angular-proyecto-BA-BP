@@ -1,3 +1,10 @@
+
+<header>
+  <app-home></app-home>
+</header>
+@for(msg of task; track msg.id){
+  <li><strong>{{msg.title}}</strong>: <span>{{msg.Autor}}: {{msg.Genero}}: {{msg.Descripcion}}:</span>  </li>
+  }
 <div class="contenedor">
     <div class="tarjeta">
       <h2 class="centrar-texto mb-4">Actualizar Perfil</h2>
@@ -22,4 +29,5 @@
       </form>
     </div>
   </div>
+  
   

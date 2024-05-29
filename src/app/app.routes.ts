@@ -6,6 +6,7 @@ import { EliminarComponent } from './pages/eliminar/eliminar.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EdiPerfilComponent } from './pages/edi-perfil/edi-perfil.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import LogInComponent from './pages/auth/log-in/log-in.component';
 export const routes: Routes = [
 
     {
@@ -28,6 +29,7 @@ export const routes: Routes = [
         ],
       },
 
+      {path: '', component: LogInComponent, pathMatch:"full"},
 
       {path: 'anadir', title: 'anadir', component: AnadirComponent},
       {path: 'editar', title: 'editar', component: EditarComponent},

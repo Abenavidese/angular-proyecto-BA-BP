@@ -1,24 +1,36 @@
+<header>
+  <app-home></app-home>
+</header>
 <div class="contenedor">
-    <div class="tarjeta">
-      <h2 class="centrar-texto mb-4">Añadir Nuevo Libro</h2>
-      <form>
-        <div class="grupo-form mb-3">
-          <label for="titulo">Título:</label>
-          <input type="text" class="campo-formulario" id="titulo" placeholder="Ingrese el título del libro">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="autor">Autor:</label>
-          <input type="text" class="campo-formulario" id="autor" placeholder="Ingrese el nombre del autor">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="genero">Género:</label>
-          <input type="text" class="campo-formulario" id="genero" placeholder="Ingrese el género del libro">
-        </div>
-        <div class="grupo-form mb-4">
-          <label for="descripcion">Descripción:</label>
-          <textarea class="campo-formulario" id="descripcion" rows="3" placeholder="Ingrese una breve descripción del libro"></textarea>
-        </div>
-        <button type="submit" class="btn-primario">Añadir Libro</button>
-      </form>
-    </div>
+  <div class="tarjeta">
+    <h2 class="centrar-texto mb-4">Añadir Nuevo Libro</h2>
+    <form>
+      <div class="grupo-form mb-3">
+        <label for="titulo">Título:</label>
+        <input type="text" class="campo-formulario" id="titulo" name="titulo" placeholder="Ingrese el título del libro" [(ngModel)]="tasks.title"/>
+      </div>
+      <div class="grupo-form mb-3">
+        <label for="autor">Autor:</label>
+        <input type="text" class="campo-formulario" id="autor" name="autor" placeholder="Ingrese el nombre del autor" [(ngModel)]="tasks.Autor">
+      </div>
+      <div class="grupo-form mb-3">
+        <label for="genero">Género:</label>
+        <input type="text" class="campo-formulario" id="genero" name="genero" placeholder="Ingrese el género del libro" [(ngModel)]="tasks.Genero">
+      </div>
+      <div class="grupo-form mb-4">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="campo-formulario" id="descripcion" name="descripcion" rows="3" placeholder="Ingrese una breve descripción del libro" [(ngModel)]="tasks.Descripcion"></textarea>
+      </div>
+      <button type="submit" class="btn-primario" (click)="guardar()">Añadir Libro</button>
+    </form>
   </div>
+</div>
+
+ 
+
+
+
+  
+
+
+
