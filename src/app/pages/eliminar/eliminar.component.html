@@ -1,0 +1,15 @@
+<header>
+  <app-home></app-home>
+</header>
+<div>
+  <ul>
+      @for (book of task; track book.id) {
+          <li><strong>Titulo: </strong>{{book.title}} :: <span> <strong>Genero: </strong>{{book.genre}}</span> :: <span><strong>Autor: </strong>{{book.author}}</span><br>
+          <span> <strong>Descripcion: </strong>{{book.description}}</span></li>
+          <button (click)="borrar(book.id)">Borrar</button><br><br>
+      }
+  </ul>
+</div>
+
+
+ 

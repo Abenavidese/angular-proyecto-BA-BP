@@ -1,0 +1,27 @@
+header {
+    background-color: #1c1c1c; /* Color de fondo para el encabezado */
+    color: #e0e0e0; /* Color del texto */
+    font-family: Arial, sans-serif; /* Familia de fuentes */
+    padding: 20px; /* Añade espacio alrededor del contenido del encabezado */
+}
+
+main {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px); /* Altura mínima de la ventana menos la altura del encabezado */
+    background-color: #1c1c1c; /* Color de fondo para el contenido principal */
+    color: #e0e0e0; /* Color del texto */
+    font-family: Arial, sans-serif; /* Familia de fuentes */
+    padding: 20px; /* Añade espacio alrededor del contenido */
+}
+
+ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el relleno de la lista */
+}
+
+li {
+    margin-bottom: 10px; /* Añade espacio entre los elementos de la lista */
+}
