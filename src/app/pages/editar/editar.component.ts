@@ -3,11 +3,12 @@ import HomeComponent from '../home/home.component';
 import { FormsModule } from '@angular/forms';
 import { MensajeService } from '../../services/mensaje.service';
 import { Tasks } from '../../domain/Tasks';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-editar',
   standalone: true,
-  imports: [HomeComponent, FormsModule],
+  imports: [HomeComponent, FormsModule, RouterLink],
   templateUrl: './editar.component.html',
   styleUrls: ['./editar.component.scss']
 })

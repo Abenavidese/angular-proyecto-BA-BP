@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MensajeService } from '../../services/mensaje.service';
 import HomeComponent from '../home/home.component';
 import { NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-eliminar',
   standalone: true,
-  imports: [HomeComponent],
+  imports: [HomeComponent, RouterLink],
   templateUrl: './eliminar.component.html',
   styleUrls: ['./eliminar.component.scss']
 })

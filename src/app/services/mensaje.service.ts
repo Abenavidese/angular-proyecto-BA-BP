@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, deleteDoc, doc, getDocs, query } from '@angular/fire/firestore';
 import { Tasks } from '../domain/Tasks';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })

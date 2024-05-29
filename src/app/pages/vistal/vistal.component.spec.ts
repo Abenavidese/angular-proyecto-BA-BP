@@ -1,17 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import PrincipalComponent from './principal.component';
-describe('PrincipalComponent', () => {
-  let component: PrincipalComponent;
-  let fixture: ComponentFixture<PrincipalComponent>;
+import VistalComponent from './vistal.component';
+
+describe('VistalComponent', () => {
+  let component: VistalComponent;
+  let fixture: ComponentFixture<VistalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrincipalComponent]
+      imports: [VistalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrincipalComponent);
+    fixture = TestBed.createComponent(VistalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

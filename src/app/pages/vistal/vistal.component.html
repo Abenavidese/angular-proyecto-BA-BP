@@ -1,0 +1,21 @@
+<header>
+    <app-home></app-home>
+  </header>
+  
+
+<!-- src/app/vista/vistal.component.html -->
+<div class="catalog">
+    <h1>Books</h1>
+    <div class="book-container" *ngFor="let book of books" (click)="toggleDetails(book)">
+      <img [src]="book.coverUrl" alt="{{ book.title }} cover" class="book-cover">
+      <h2>{{ book.title }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Genre:</strong> {{ book.genre }}</p>
+      <p>
+        <strong>Description:</strong> {{ book.showDetails ? book.description : book.shortDescription }}
+      </p>
+ 
+    </div>
+  </div>
+
+  

@@ -1,19 +1,25 @@
 import { Routes } from '@angular/router';
 import { authGuard, publicGuard } from './core/guards';
-import { AnadirComponent } from './pages/anadir/anadir.component';
+import AnadirComponent from './pages/anadir/anadir.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { EliminarComponent } from './pages/eliminar/eliminar.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { EdiPerfilComponent } from './pages/edi-perfil/edi-perfil.component';
-import { PrincipalComponent } from './pages/principal/principal.component';
+import PrincipalComponent from './pages/principal/principal.component';
 import LogInComponent from './pages/auth/log-in/log-in.component';
+import VistalComponent from './pages/vistal/vistal.component';
+import SignUpComponent from './pages/auth/sign-up/sign-up.component';
 export const routes: Routes = [
 
     {
         path: '',
         canActivate: [authGuard],
-        loadComponent: () => import('./pages/home/home.component'),
+        loadComponent: () => import('./pages/principal/principal.component'),
       },
+
+      {path : 'vistal', canActivate:[authGuard],
+      loadComponent:() => import('./pages/vistal/vistal.component'),
+    },
       {
         path: 'auth',
         canActivate: [publicGuard],
@@ -28,8 +34,7 @@ export const routes: Routes = [
           },
         ],
       },
-
-      {path: '', component: LogInComponent, pathMatch:"full"},
+     
 
       {path: 'anadir', title: 'anadir', component: AnadirComponent},
       {path: 'editar', title: 'editar', component: EditarComponent},
@@ -37,4 +42,5 @@ export const routes: Routes = [
       {path: 'perfil', title: 'editar', component: PerfilComponent},
       {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent},
       {path: 'principal', title: 'principal', component: PrincipalComponent},
+      {path: 'vistal' , title: 'vistal', component:VistalComponent}
 ];
