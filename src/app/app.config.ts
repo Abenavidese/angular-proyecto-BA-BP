@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common'; // Importar CommonModule
 
 
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
