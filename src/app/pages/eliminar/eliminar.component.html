@@ -1,15 +1,25 @@
 <header>
   <app-home></app-home>
 </header>
-<div>
-  <ul>
-      @for (book of task; track book.id) {
-          <li><strong>Titulo: </strong>{{book.title}} :: <span> <strong>Genero: </strong>{{book.genre}}</span> :: <span><strong>Autor: </strong>{{book.author}}</span><br>
-          <span> <strong>Descripcion: </strong>{{book.description}}</span></li>
-          <button (click)="borrar(book.id)">Borrar</button><br><br>
-      }
+
+
+<div class="book-container">
+  <ul class="book-list">
+    @for (book of task; track book.id) {
+      <li class="book-item">
+        <strong>Titulo:</strong> {{book.title}} ::
+        <span><strong>Genero:</strong> {{book.genre}}</span> ::
+        <span><strong>Autor:</strong> {{book.author}}</span>
+        <br>
+        <span><strong>Descripcion:</strong> {{book.description}}</span>
+        <br><br>
+        <button (click)="borrar(book.id)" class="delete-button">Borrar</button>
+      </li>
+    }
   </ul>
+  
 </div>
+
 
 
  
