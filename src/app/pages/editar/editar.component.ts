@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import HomeComponent from '../home/home.component';
 import { FormsModule } from '@angular/forms';
-import { Tasks } from '../../domain/Tasks';
 import { MensajeService } from '../../services/mensaje.service';
+import { Tasks } from '../../domain/Tasks';
+
 @Component({
   selector: 'app-editar',
   standalone: true,
@@ -11,11 +12,15 @@ import { MensajeService } from '../../services/mensaje.service';
   styleUrls: ['./editar.component.scss']
 })
 export class EditarComponent implements OnInit {
-
   task: any;
   message: string | null = null; // Añadir la propiedad message
-
+  tasks : Tasks = new Tasks()
+  
   constructor(private tareasService: MensajeService) {}
+
+  guardar(){
+    this.tareasService.addTask(this.tasks);
+  }
 
   ngOnInit() {
     this.tareasService.getTasks().then(data => {
@@ -27,8 +32,20 @@ export class EditarComponent implements OnInit {
       });
     });
   }
-  onSubmit(){}
 
-  onSelectBook(){}
-  
+  borrar(taskId: string) {
+   
+    
+    // Eliminar el registro después de guardar
+    this.tareasService.deleteTasks(taskId).then(() => {
+      console.log('Documento eliminado');
+      this.message = 'Se ha eliminado correctamente';
+      this.task = this.task.filter((book: any) => book.id !== taskId);
+      this.guardar();
+
+      setTimeout(() => this.message = null, 3000); // Ocultar mensaje después de 3 segundos
+    }).catch(error => {
+      console.log('Error al eliminar', error);
+    });
+  }
 }

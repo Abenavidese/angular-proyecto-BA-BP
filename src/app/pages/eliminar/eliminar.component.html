@@ -8,10 +8,10 @@
     @for (book of task; track book.id) {
       <li class="book-item">
         <strong>Titulo:</strong> {{book.title}} ::
-        <span><strong>Genero:</strong> {{book.genre}}</span> ::
-        <span><strong>Autor:</strong> {{book.author}}</span>
+        <span><strong>Genero:</strong> {{book.Genero}}</span> ::
+        <span><strong>Autor:</strong> {{book.Autor}}</span>
         <br>
-        <span><strong>Descripcion:</strong> {{book.description}}</span>
+        <span><strong>Descripcion:</strong> {{book.Descripcion}}</span>
         <br><br>
         <button (click)="borrar(book.id)" class="delete-button">Borrar</button>
       </li>

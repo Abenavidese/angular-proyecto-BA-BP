@@ -4,24 +4,31 @@
 <div class="contenedor">
     <div class="tarjeta">
       <h2 class="centrar-texto mb-4">Editar Libro</h2>
-      <form>
+      @for (book of task; track book.id) {
+      
         <div class="grupo-form mb-3">
           <label for="editar-titulo">Título:</label>
-          <input type="text" class="campo-formulario" id="editar-titulo" placeholder="Ingrese el nuevo título del libro">
+          <li><strong>Titulo:</strong> {{book.title}}</li>
+          <input type="text" class="campo-formulario" id="editar-titulo" placeholder="Escribe el título..." [(ngModel)]="tasks.title">
         </div>
         <div class="grupo-form mb-3">
           <label for="editar-autor">Autor:</label>
-          <input type="text" class="campo-formulario" id="editar-autor" placeholder="Ingrese el nuevo nombre del autor">
+          <li><span><strong>Autor:</strong> {{book.Autor}}</span></li>
+          <input type="text" class="campo-formulario" id="editar-autor" placeholder="Ingrese el nuevo nombre del autor" [(ngModel)]="tasks.Autor">
         </div>
         <div class="grupo-form mb-3">
           <label for="editar-genero">Género:</label>
-          <input type="text" class="campo-formulario" id="editar-genero" placeholder="Ingrese el nuevo género del libro">
+          <li><span><strong>Genero:</strong> {{book.Genero}}</span></li>
+          <input type="text" class="campo-formulario" id="editar-genero" placeholder="Ingrese el nuevo género del libro" [(ngModel)]="tasks.Genero">
         </div>
         <div class="grupo-form mb-4">
           <label for="editar-descripcion">Descripción:</label>
-          <textarea class="campo-formulario" id="editar-descripcion" rows="3" placeholder="Ingrese una nueva descripción del libro"></textarea>
+          <li><span><strong>Descripcion:</strong> {{book.Descripcion}}</span></li>
+          <textarea class="campo-formulario" id="editar-descripcion" rows="3" placeholder="Ingrese una nueva descripción del libro" [(ngModel)]="tasks.Descripcion"></textarea>
         </div>
-        <button type="submit" class="btn-primario">Guardar Cambios</button>
-      </form>
+        <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
+    
+    }
     </div>
   </div> 
+  

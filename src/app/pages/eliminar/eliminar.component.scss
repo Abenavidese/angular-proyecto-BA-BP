@@ -1,43 +1,42 @@
 .book-container {
-    width: 80%;
-    margin: 0 auto; // Centrar el contenedor
-    padding: 1em;
-    background-color: #f8f9fa; // Color de fondo claro para el contenedor
-    border-radius: 10px; // Bordes redondeados
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para darle profundidad
+  width: 80%;
+  margin: 0 auto; // Centrar el contenedor
+  padding: 1em;
+  background-color: #f8f9fa; // Color de fondo claro para el contenedor
+  border-radius: 10px; // Bordes redondeados
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para darle profundidad
+}
+
+.book-list {
+  list-style-type: none; // Quitar viñetas
+  padding: 0;
+  margin: 0;
+}
+
+.book-item {
+  background-color: #ffffff; // Fondo blanco para los items
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px; // Bordes redondeados
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra para los items
+}
+
+.delete-button {
+  background-color: #ff4d4d; // Fondo rojo
+  color: white; // Texto blanco
+  border: none; // Quitar borde
+  padding: 0.5em 1em;
+  border-radius: 5px; // Bordes redondeados
+  cursor: pointer; // Cursor de pointer para indicar que es clickeable
+  transition: background-color 0.3s ease; // Transición suave para el hover
+
+  &:hover {
+    background-color: #e60000; // Fondo más oscuro al pasar el mouse
   }
-  
-  .book-list {
-    list-style-type: none; // Quitar viñetas
-    padding: 0;
-    margin: 0;
-  }
-  
-  .book-item {
-    background-color: #ffffff; // Fondo blanco para los items
-    padding: 1em;
-    margin-bottom: 1em;
-    border-radius: 5px; // Bordes redondeados
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra para los items
-  }
-  
-  .delete-button {
-    background-color: #ff4d4d; // Fondo rojo
-    color: white; // Texto blanco
-    border: none; // Quitar borde
-    padding: 0.5em 1em;
-    border-radius: 5px; // Bordes redondeados
-    cursor: pointer; // Cursor de pointer para indicar que es clickeable
-    transition: background-color 0.3s ease; // Transición suave para el hover
-  
-    &:hover {
-      background-color: #e60000; // Fondo más oscuro al pasar el mouse
-    }
-  }
-  
-  .success-message {
-    color: green;
-    margin-top: 1em;
-    font-weight: bold;
-  }
-  
+}
+
+.success-message {
+  color: green;
+  margin-top: 1em;
+  font-weight: bold;
+}
