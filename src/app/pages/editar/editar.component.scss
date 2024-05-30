@@ -42,3 +42,16 @@
 .btn-primario:hover {
   background-color: #0056b3;
 }
+.btn-recargar {
+  background-color: #28a745; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 0.5em 1em; /* Espaciado interno */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar el ratón */
+  transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.btn-recargar:hover {
+  background-color: #218838; /* Color de fondo al pasar el ratón */
+}

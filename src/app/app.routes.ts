@@ -9,6 +9,7 @@ import PrincipalComponent from './pages/principal/principal.component';
 import LogInComponent from './pages/auth/log-in/log-in.component';
 import VistalComponent from './pages/vistal/vistal.component';
 import SignUpComponent from './pages/auth/sign-up/sign-up.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 export const routes: Routes = [
 
     {
@@ -42,5 +43,7 @@ export const routes: Routes = [
       {path: 'perfil', title: 'editar', component: PerfilComponent},
       {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent},
       {path: 'principal', title: 'principal', component: PrincipalComponent},
+      {path: 'usuarios', title: 'usuarios', component: UsuariosComponent},
+
       {path: 'vistal' , title: 'vistal', component:VistalComponent}
 ];

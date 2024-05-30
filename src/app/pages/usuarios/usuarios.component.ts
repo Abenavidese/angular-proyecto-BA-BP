@@ -1,32 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import HomeComponent from '../home/home.component';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { MensajeService } from '../../services/mensaje.service';
-import { Tasks } from '../../domain/Tasks';
+import HomeComponent from '../home/home.component';
 import { RouterLink } from '@angular/router';
+import { users } from '../../domain/users';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-editar',
+  selector: 'app-usuarios',
   standalone: true,
-  imports: [HomeComponent, FormsModule, RouterLink],
-  templateUrl: './editar.component.html',
-  styleUrls: ['./editar.component.scss']
+  imports: [HomeComponent, RouterLink,FormsModule],
+  templateUrl: './usuarios.component.html',
+  styleUrl: './usuarios.component.scss'
 })
-export class EditarComponent implements OnInit {
+export class UsuariosComponent {
   task: any;
   message: string | null = null; // Añadir la propiedad message
-  tasks : Tasks = new Tasks()
+  usuario : users = new users()
   
   constructor(private tareasService: MensajeService) {}
 
   guardar(){
-    this.tareasService.addTask(this.tasks);
+    this.tareasService.addTask1(this.usuario);
   }
-  recargarPagina() {
-    window.location.reload(); // Método para recargar la página
-  }
+
   ngOnInit() {
-    this.tareasService.getTasks().then(data => {
+    this.tareasService.getTasks1().then(data => {
       this.task = data.docs.map((doc: any) => {
         return {
           id: doc.id,
@@ -35,12 +33,14 @@ export class EditarComponent implements OnInit {
       });
     });
   }
-
+  recargarPagina() {
+    window.location.reload(); // Método para recargar la página
+  }
   borrar(taskId: string) {
    
     
     // Eliminar el registro después de guardar
-    this.tareasService.deleteTasks(taskId).then(() => {
+    this.tareasService.deleteTasks1(taskId).then(() => {
       console.log('Documento eliminado');
       this.message = 'Se ha eliminado correctamente';
       this.task = this.task.filter((book: any) => book.id !== taskId);
@@ -51,4 +51,5 @@ export class EditarComponent implements OnInit {
       console.log('Error al eliminar', error);
     });
   }
+ 
 }
