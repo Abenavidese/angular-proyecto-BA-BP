@@ -1,10 +1,16 @@
 <header>
 <app-home></app-home>
 </header>
+<br>
+<br>
+<br>
+<br>
+
+<button class="btn-recargar" (click)="recargarPagina()">Recargar</button>
 <div class="contenedor">
     <div class="tarjeta">
       <h2 class="centrar-texto mb-4">Editar Libro</h2>
-      <button class="btn-recargar" (click)="recargarPagina()">Recargar Usuarios</button>
+      
 
       @for (book of task; track book.id) {
       
@@ -29,6 +35,8 @@
           <textarea class="campo-formulario" id="editar-descripcion" rows="3" placeholder="Ingrese una nueva descripción del libro" [(ngModel)]="tasks.Descripcion"></textarea>
         </div>
         <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
+
+        <hr>
     
     }
     </div>

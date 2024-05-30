@@ -21,6 +21,7 @@ export default class HomeComponent implements OnInit{
 
   private authservice = inject(AuthService);
   public active: boolean = false;
+  isAdmin: boolean = false;
   async logOut(): Promise<void> {
     try {
       await this.authservice.logOut();
@@ -31,10 +32,20 @@ export default class HomeComponent implements OnInit{
   }
  
   
+  constructor(private authService: AuthService) { }
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Verificar el rol del usuario al inicializar el componente
+    this.authService.authState$.subscribe(user => {
+      if (user) {
+        this.authService.getUserRole(user.uid).subscribe(role => {
+          this.isAdmin = role === 'admin';
+        });
+      } else {
+        this.isAdmin = false;
+      }
+    });
+  }
 
   toggleMenu() {
     this.active = !this.active;

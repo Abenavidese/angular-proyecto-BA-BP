@@ -43,7 +43,7 @@ export const routes: Routes = [
       {path: 'editar', title: 'editar', component: EditarComponent , canActivate: [AdminGuard]},
       {path: 'eliminar', title: 'eliminar', component: EliminarComponent, canActivate: [AdminGuard]},
       {path: 'perfil', title: 'editar', component: PerfilComponent, canActivate: [AdminGuard]},
-      {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent, canActivate: [AdminGuard]},
+      {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent},
       {path: 'principal', title: 'principal', component: PrincipalComponent},
       {path: 'usuarios', title: 'usuarios', component: UsuariosComponent, canActivate: [AdminGuard]},
 

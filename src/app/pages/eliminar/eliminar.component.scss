@@ -1,5 +1,10 @@
+.eliminar-libros-title {
+  text-align: center; // Centra el título
+ 
+}
+
 .book-container {
-  width: 80%;
+  width: 90%; // Ajusta el ancho del contenedor al 90% para dar más espacio
   margin: 0 auto; // Centrar el contenedor
   padding: 1em;
   background-color: #f8f9fa; // Color de fondo claro para el contenedor
@@ -15,9 +20,9 @@
 
 .book-item {
   background-color: #ffffff; // Fondo blanco para los items
-  padding: 1em;
+  padding: 1.5em; // Aumenta el espacio dentro del contenedor de libro
   margin-bottom: 1em;
-  border-radius: 5px; // Bordes redondeados
+  border-radius: 10px; // Bordes redondeados
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra para los items
 }
 

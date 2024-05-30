@@ -2,20 +2,23 @@
     <app-home></app-home>
   </header>
   
-
-<!-- src/app/vista/vistal.component.html -->
-<div class="catalog">
+  <!-- Vista de la página de libros -->
+  <div class="catalog">
     <h1>Books</h1>
+    <!-- Iteración sobre la lista de libros -->
     <div class="book-container" *ngFor="let book of books" (click)="toggleDetails(book)">
+      <!-- Mostrar la portada del libro -->
       <img [src]="book.coverUrl" alt="{{ book.title }} cover" class="book-cover">
+      <!-- Mostrar el título del libro -->
       <h2>{{ book.title }}</h2>
+      <!-- Mostrar el autor del libro -->
       <p><strong>Author:</strong> {{ book.author }}</p>
+      <!-- Mostrar el género del libro -->
       <p><strong>Genre:</strong> {{ book.genre }}</p>
+      <!-- Mostrar la descripción completa o corta del libro según el estado -->
       <p>
         <strong>Description:</strong> {{ book.showDetails ? book.description : book.shortDescription }}
       </p>
- 
     </div>
   </div>
-
   

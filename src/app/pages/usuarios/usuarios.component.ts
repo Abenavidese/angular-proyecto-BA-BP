@@ -1,29 +1,30 @@
 import { Component } from '@angular/core';
 import { MensajeService } from '../../services/mensaje.service';
-import HomeComponent from '../home/home.component';
 import { RouterLink } from '@angular/router';
-import { users } from '../../domain/users';
+import { users } from '../../domain/users'; // Importar la interfaz de usuarios
 import { FormsModule } from '@angular/forms';
+import HomeComponent from '../home/home.component';
 
 @Component({
   selector: 'app-usuarios',
   standalone: true,
-  imports: [HomeComponent, RouterLink,FormsModule],
+  imports: [HomeComponent, RouterLink, FormsModule], // Importar los módulos necesarios
   templateUrl: './usuarios.component.html',
-  styleUrl: './usuarios.component.scss'
+  styleUrls: ['./usuarios.component.scss']
 })
 export class UsuariosComponent {
-  task: any;
-  message: string | null = null; // Añadir la propiedad message
-  usuario : users = new users()
+  task: any; // Variable para almacenar los usuarios
+  message: string | null = null; // Propiedad para mostrar mensajes
+  usuario: users = new users(); // Instancia de la interfaz de usuario para gestionar usuarios
   
   constructor(private tareasService: MensajeService) {}
 
-  guardar(){
-    this.tareasService.addTask1(this.usuario);
+  guardar() {
+    this.tareasService.addTask1(this.usuario); // Método para guardar el usuario
   }
 
   ngOnInit() {
+    // Método para inicializar el componente y obtener los usuarios
     this.tareasService.getTasks1().then(data => {
       this.task = data.docs.map((doc: any) => {
         return {
@@ -33,23 +34,22 @@ export class UsuariosComponent {
       });
     });
   }
+
   recargarPagina() {
     window.location.reload(); // Método para recargar la página
   }
+
   borrar(taskId: string) {
-   
-    
-    // Eliminar el registro después de guardar
+    // Método para eliminar un usuario
     this.tareasService.deleteTasks1(taskId).then(() => {
       console.log('Documento eliminado');
-      this.message = 'Se ha eliminado correctamente';
-      this.task = this.task.filter((book: any) => book.id !== taskId);
-      this.guardar();
+      this.message = 'Se ha eliminado correctamente'; // Mostrar mensaje de éxito
+      this.task = this.task.filter((book: any) => book.id !== taskId); // Actualizar lista de usuarios
+      this.guardar(); // Guardar cambios
 
       setTimeout(() => this.message = null, 3000); // Ocultar mensaje después de 3 segundos
     }).catch(error => {
-      console.log('Error al eliminar', error);
+      console.log('Error al eliminar', error); // Manejo de errores
     });
   }
- 
 }

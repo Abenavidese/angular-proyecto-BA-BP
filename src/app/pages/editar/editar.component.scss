@@ -1,5 +1,5 @@
 .contenedor {
-  width: 80%;
+  width: 500px;
   margin: 0 auto;
   padding: 1em;
   background-color: #f8f9fa;
@@ -12,6 +12,7 @@
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 450px;
 }
 
 .centrar-texto {
@@ -43,13 +44,16 @@
   background-color: #0056b3;
 }
 .btn-recargar {
-  background-color: #28a745; /* Color de fondo */
-  color: white; /* Color del texto */
-  border: none; /* Sin borde */
-  padding: 0.5em 1em; /* Espaciado interno */
-  border-radius: 5px; /* Borde redondeado */
-  cursor: pointer; /* Cursor al pasar el ratón */
-  transition: background-color 0.3s; /* Transición suave del color de fondo */
+  position: fixed; /* Posición fija */
+  top: 10%; /* Ajusta la posición vertical */
+  right: 2%; /* Ajusta la posición horizontal */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-recargar:hover {

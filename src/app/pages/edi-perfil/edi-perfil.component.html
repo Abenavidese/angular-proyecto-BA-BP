@@ -5,10 +5,10 @@
 @for(msg of task; track msg.id){
   <li><strong>{{msg.title}}</strong>: <span>{{msg.Autor}}: {{msg.Genero}}: {{msg.Descripcion}}:</span>  </li>
   }
-<div class="contenedor">
+  <div class="contenedor">
     <div class="tarjeta">
       <h2 class="centrar-texto mb-4">Actualizar Perfil</h2>
-      <form>
+      <form (submit)="actualizarPerfil()">
         <div class="grupo-form mb-3">
           <label for="actualizar-nombre">Nombre:</label>
           <input type="text" class="campo-formulario" id="actualizar-nombre" placeholder="Ingrese su nuevo nombre">
@@ -29,5 +29,3 @@
       </form>
     </div>
   </div>
-  
-  

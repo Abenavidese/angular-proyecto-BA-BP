@@ -1,69 +1,73 @@
 .contenedor {
-    width: 80%;
-    margin: 4em auto; /* Ajusta la distancia desde la parte superior */
-    padding: 1em;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tarjeta {
-    background-color: #ffffff;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1em; /* Agrega margen entre cada tarjeta */
-  }
-  
-  .centrar-texto {
-    text-align: center;
-  }
-  
-  .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-  
-  .form-container {
-    flex: 1 1 45%; /* Ajusta el porcentaje según sea necesario */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-  }
-  
-  .campo-formulario {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 0.5em;
-  }
-  
-  .btn-primario {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 1em; /* Añade margen superior al botón */
-  }
-  
-  .btn-primario:hover {
-    background-color: #0056b3;
-  }
-  .btn-recargar {
-    background-color: #28a745; /* Color de fondo */
-    color: white; /* Color del texto */
-    border: none; /* Sin borde */
-    padding: 0.5em 1em; /* Espaciado interno */
-    border-radius: 5px; /* Borde redondeado */
-    cursor: pointer; /* Cursor al pasar el ratón */
-    transition: background-color 0.3s; /* Transición suave del color de fondo */
-  }
-  
-  .btn-recargar:hover {
-    background-color: #218838; /* Color de fondo al pasar el ratón */
-  }
-  
+  width: 80%;
+  margin: 4em auto; /* Ajusta la distancia desde la parte superior */
+  padding: 1em;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em; /* Aumenta el espacio entre tarjetas */
+}
+
+.centrar-texto {
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.form-container {
+  flex: 1 1 45%; /* Ajusta el porcentaje según sea necesario */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em; /* Aumenta el espacio entre contenedores de formulario */
+}
+
+.campo-formulario {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+
+.btn-primario {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.7em 1em; /* Aumenta el espacio alrededor del texto del botón */
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+  background-color: #0056b3;
+}
+
+.btn-recargar {
+  position: fixed;
+  top: 10%;
+  right: 2%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.7em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-recargar:hover {
+  background-color: #218838;
+}
