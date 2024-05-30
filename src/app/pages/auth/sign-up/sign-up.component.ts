@@ -84,7 +84,7 @@ export default class SignUpComponent {
       email: this.form.value.email || '',
       password: this.form.value.password || '',
     };
-    const role = this.form.value.role ?? 'visitor'; // Asegura que `role` nunca sea undefined
+    const role = this.form.value.role ?? 'visitor'; // Asegura que role nunca sea undefined
   
     const additionalData = {
       names: this.form.value.names,

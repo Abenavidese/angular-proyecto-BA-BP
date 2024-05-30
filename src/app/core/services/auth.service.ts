@@ -10,12 +10,20 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from '@angular/fire/auth';
-import { Firestore, doc, setDoc } from '@angular/fire/firestore';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Credential {
   email: string;
   password: string;
 }
+
+export interface UserData {
+  role: 'admin' | 'visitor'; // Definición de los roles posibles
+  // Otras propiedades si las hubiera
+}
+
 
 @Injectable({
   providedIn: 'root',
@@ -32,8 +40,27 @@ export class AuthService {
     return userCredential;
   }
 
-  logInWithEmailAndPassword(credential: Credential) {
-    return signInWithEmailAndPassword(this.auth, credential.email, credential.password);
+  async logInWithEmailAndPassword(credential: Credential): Promise<void> {
+    try {
+      const userCredential = await signInWithEmailAndPassword(this.auth, credential.email, credential.password);
+      const userId = userCredential.user.uid;
+      const userDoc = await getDoc(doc(this.firestore, `users/${userId}`));
+      if (userDoc.exists()) {
+        const userData: UserData = userDoc.data() as UserData;
+        const userRole = userData.role; // Acceso a la propiedad 'role'
+        if (userRole === 'admin') {
+          // Usuario es administrador
+          // Realiza acciones específicas para administradores
+        } else if (userRole === 'visitor') {
+          // Usuario es visitante
+          // Realiza acciones específicas para visitantes
+        }
+      } else {
+        console.error('No se encontró información del usuario.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+    }
   }
 
   logOut(): Promise<void> {
@@ -41,7 +68,6 @@ export class AuthService {
   }
 
   // providers
-
   signInWithGoogleProvider(): Promise<UserCredential> {
     const provider = new GoogleAuthProvider();
     return this.callPopUp(provider);
@@ -63,6 +89,20 @@ export class AuthService {
 
   private async setUserRole(userId: string, role: 'visitor' | 'admin', additionalData: any): Promise<void> {
     const userDoc = doc(this.firestore, `users/${userId}`);
-    await setDoc(userDoc, { role, ...additionalData });
+    await setDoc(userDoc, { role: role.toString(), ...additionalData });
+  }
+
+  getUserRole(userId: string): Observable<string | null> {
+    const userDoc = doc(this.firestore, `users/${userId}`);
+    return from(getDoc(userDoc)).pipe(
+      map((docSnapshot) => {
+        if (docSnapshot.exists()) {
+          const userData = docSnapshot.data() as UserData;
+          return userData.role;
+        } else {
+          return null;
+        }
+      })
+    );
   }
 }

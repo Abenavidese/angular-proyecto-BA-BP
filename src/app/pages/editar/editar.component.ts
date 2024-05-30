@@ -3,6 +3,10 @@ import HomeComponent from '../home/home.component';
 import { FormsModule } from '@angular/forms';
 import { MensajeService } from '../../services/mensaje.service';
 import { Tasks } from '../../domain/Tasks';
+
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 
 @Component({

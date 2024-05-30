@@ -1,6 +1,9 @@
+<body>
+  
+  <div class="background-image">
 <div class="form">
     <div class="form__container">
-      <h1>Log in</h1>
+      <h1 class="small-text-providers">Log in</h1>
       <form [formGroup]="form" (ngSubmit)="logIn()">
         <div>
           <mat-form-field>
@@ -36,12 +39,13 @@
         </div>
       </form>
       <hr />
-      <span class="small-text providers">Have Google or GitHub?</span>
+      <span class="small-text-providers">Have Google or GitHub?</span>
       <app-button-providers [isLogin]="true" />
-      <span class="small-text log-in-redirect"
+      <span class="small-textlog-in-redirect"
         >Don’t have an account yet?
         <a routerLink="/auth/sign-up">Sign up</a></span
       >
     </div>
   </div>
-  
+</div>
+</body>

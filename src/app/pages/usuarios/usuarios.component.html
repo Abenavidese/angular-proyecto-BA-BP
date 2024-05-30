@@ -1,9 +1,11 @@
 <header>
     <app-home></app-home>
   </header>
+
+  <button class="btn-recargar" (click)="recargarPagina()">Recargar Usuarios</button>
   <div class="contenedor">
     <h2 class="centrar-texto mb-4">Editar Usuarios</h2>
-    <button class="btn-recargar" (click)="recargarPagina()">Recargar Usuarios</button>
+
 
     @for (book of task; track book.id) {
       <div class="tarjeta">
@@ -26,11 +28,10 @@
           <div class="form-container">
             <label for="editar-role-{{book.id}}">Role:</label>
             <li><span><strong>Role:</strong> {{book.role}}</span></li>
-            <textarea class="campo-formulario" id="editar-role-{{book.id}}" rows="3" placeholder="Ingrese el rol" [(ngModel)]="usuario.role"></textarea>
+            <textarea class="campo-formulario" id="editar-role-{{book.id}}" rows="1" placeholder="Ingrese el rol" [(ngModel)]="usuario.role"></textarea>
           </div>
         </div>
         <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
       </div>
     }
   </div>
-  

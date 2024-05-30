@@ -1,6 +1,6 @@
 <div class="form">
   <div class="form__container">
-    <h1>Sign up</h1>
+    <h1 class="small-text-log-in-redirect">Sign up</h1>
     <form [formGroup]="form" (ngSubmit)="signUp()">
       <div>
         <mat-form-field>
@@ -51,9 +51,9 @@
       </div>
     </form>
     <hr />
-    <span class="small-text providers">Have Google or GitHub?</span>
+    <span class="small-text-providers">Have Google or GitHub?</span>
     <app-button-providers />
-    <span class="small-text log-in-redirect"
+    <span class="small-text-log-in-redirect"
       >Already have an account? <a routerLink="/auth/log-in">Log in</a></span
     >
   </div>

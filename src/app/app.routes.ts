@@ -10,6 +10,7 @@ import LogInComponent from './pages/auth/log-in/log-in.component';
 import VistalComponent from './pages/vistal/vistal.component';
 import SignUpComponent from './pages/auth/sign-up/sign-up.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { AdminGuard } from './core/guards/adminn.guard';
 export const routes: Routes = [
 
     {
@@ -37,13 +38,13 @@ export const routes: Routes = [
       },
      
 
-      {path: 'anadir', title: 'anadir', component: AnadirComponent},
-      {path: 'editar', title: 'editar', component: EditarComponent},
-      {path: 'eliminar', title: 'eliminar', component: EliminarComponent},
-      {path: 'perfil', title: 'editar', component: PerfilComponent},
-      {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent},
+      {path: 'anadir', title: 'anadir', component: AnadirComponent , canActivate: [AdminGuard]},
+      {path: 'editar', title: 'editar', component: EditarComponent , canActivate: [AdminGuard]},
+      {path: 'eliminar', title: 'eliminar', component: EliminarComponent, canActivate: [AdminGuard]},
+      {path: 'perfil', title: 'editar', component: PerfilComponent, canActivate: [AdminGuard]},
+      {path: 'edi-perfil', title: 'eliminar', component: EdiPerfilComponent, canActivate: [AdminGuard]},
       {path: 'principal', title: 'principal', component: PrincipalComponent},
-      {path: 'usuarios', title: 'usuarios', component: UsuariosComponent},
+      {path: 'usuarios', title: 'usuarios', component: UsuariosComponent, canActivate: [AdminGuard]},
 
       {path: 'vistal' , title: 'vistal', component:VistalComponent}
 ];
