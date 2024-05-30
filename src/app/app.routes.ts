@@ -10,6 +10,7 @@ import LogInComponent from './pages/auth/log-in/log-in.component';
 import VistalComponent from './pages/vistal/vistal.component';
 import SignUpComponent from './pages/auth/sign-up/sign-up.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { adminGuard } from './auth/admin.guard';
 import { AdminGuard } from './core/guards/adminn.guard';
 export const routes: Routes = [
 
