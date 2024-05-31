@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, deleteDoc, doc, getDocs, query } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, deleteDoc, doc, getDocs, query, updateDoc, getDoc} from '@angular/fire/firestore';
 import { Tasks } from '../domain/Tasks';
 import { users } from '../domain/users';
+
+
+
+import { getAuth } from 'firebase/auth';
+
 
 
 
@@ -35,4 +40,27 @@ export class MensajeService {
   deleteTasks1(usid: string) {
     return deleteDoc(doc(this.firestore, 'users', usid))
   }
+
+  getCurrentUser() {
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      const userDocRef = doc(this.firestore, 'users', currentUser.uid);
+      return getDoc(userDocRef).then(docSnap => {
+        if (docSnap.exists()) {
+          return { id: docSnap.id, ...docSnap.data() };
+        } else {
+          throw new Error('No se encontró el usuario');
+        }
+      });
+    } else {
+      return Promise.reject('No hay usuario autenticado');
+    }
+  }
+
+  
+
+
+
+
 }

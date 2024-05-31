@@ -1,31 +1,36 @@
-
 <header>
   <app-home></app-home>
 </header>
-@for(msg of task; track msg.id){
-  <li><strong>{{msg.title}}</strong>: <span>{{msg.Autor}}: {{msg.Genero}}: {{msg.Descripcion}}:</span>  </li>
-  }
-  <div class="contenedor">
-    <div class="tarjeta">
-      <h2 class="centrar-texto mb-4">Actualizar Perfil</h2>
-      <form (submit)="actualizarPerfil()">
-        <div class="grupo-form mb-3">
-          <label for="actualizar-nombre">Nombre:</label>
-          <input type="text" class="campo-formulario" id="actualizar-nombre" placeholder="Ingrese su nuevo nombre">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="actualizar-email">Correo Electrónico:</label>
-          <input type="email" class="campo-formulario" id="actualizar-email" placeholder="Ingrese su nuevo correo electrónico">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="actualizar-contrasena">Contraseña:</label>
-          <input type="password" class="campo-formulario" id="actualizar-contrasena" placeholder="Ingrese su nueva contraseña">
-        </div>
-        <div class="grupo-form mb-4">
-          <label for="actualizar-confirmar-contrasena">Confirmar Contraseña:</label>
-          <input type="password" class="campo-formulario" id="actualizar-confirmar-contrasena" placeholder="Confirme su nueva contraseña">
-        </div>
-        <button type="submit" class="btn-primario">Actualizar</button>
-      </form>
+
+<div class="contenedor">
+  <h2 class="centrar-texto mb-4"></h2>
+
+  <div class="tarjeta">
+    <div class="form-row">
+      <div class="form-container">
+        <label for="editar-email">Correo Electrónico:</label>
+        <li><strong>Email:</strong> {{usuario.email}}</li>
+        <input type="text" class="campo-formulario" id="editar-email" placeholder="Escribe el correo electrónico..." [(ngModel)]="usuario.email">
+      </div>
+      
+      <div class="form-container">
+        <label for="editar-lastname">Apellido:</label>
+        <li><span><strong>Apellido:</strong> {{usuario.lastname}}</span></li>
+        <input type="text" class="campo-formulario" id="editar-lastname" placeholder="Ingrese el apellido" [(ngModel)]="usuario.lastname">
+      </div>
+
+      <div class="form-container">
+        <label for="editar-names">Nombre:</label>
+        <li><span><strong>Nombre:</strong> {{usuario.names}}</span></li>
+        <input type="text" class="campo-formulario" id="editar-names" placeholder="Ingrese el nombre" [(ngModel)]="usuario.names">
+      </div>
+
+      <div class="form-container">
+        <label for="nueva-contrasena">Nueva Contraseña:</label>
+        <input type="password" class="campo-formulario" id="nueva-contrasena" placeholder="Escribe la nueva contraseña..." [(ngModel)]="usuario.contrasenia">
+      </div>
+   
     </div>
+    <button (click)="guardar()" class="btn-primario">Guardar Cambios</button>
   </div>
+</div>

@@ -4,38 +4,65 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { UserData } from '../../core/services/auth.service';
 
+
+
+
+import { MensajeService } from '../../services/mensaje.service';
+
+import { users } from '../../domain/users';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-edi-perfil',
   standalone: true,
-  imports: [HomeComponent, RouterLink],
+  imports: [HomeComponent, RouterLink, FormsModule],
   templateUrl: './edi-perfil.component.html',
   styleUrl: './edi-perfil.component.scss'
 })
+
 export class EdiPerfilComponent {
-  task : any
-
-  constructor(private authService: AuthService) {} // Inyectar el servicio AuthService
-
-  async actualizarPerfil(): Promise<void> {
-    const userId = 'id_del_usuario_actual'; // Obtén el ID del usuario actual
-    const nombre = (document.getElementById('actualizar-nombre') as HTMLInputElement).value;
-    const email = (document.getElementById('actualizar-email') as HTMLInputElement).value;
-    const contrasena = (document.getElementById('actualizar-contrasena') as HTMLInputElement).value;
-    
-    // Aquí estás proporcionando la propiedad 'role' requerida por el tipo 'UserData'
-    const userData: UserData = {
-      role: 'visitor', // O 'admin', dependiendo del caso
-      displayName: nombre,
-      email: email
-    };
   
-    try {
-      await this.authService.updateUserData(userId, userData);
+  task: any;
+  message: string | null = null; // Añadir la propiedad message
+  usuario : users = new users()
   
-      console.log('Datos del usuario actualizados correctamente.');
-    } catch (error) {
-      console.error('Error al actualizar los datos del usuario:', error);
-    }
+  constructor(private tareasService: MensajeService) {}
+
+  cargarUsuario() {
+    this.tareasService.getCurrentUser().then((userData: any) => {
+      this.usuario = userData;
+    }).catch(error => {
+      console.log('Error al cargar usuario', error);
+    });
   }
+
+  ngOnInit() {
+    this.cargarUsuario();
+  }
+  
+  recargarPagina() {
+    window.location.reload(); // Método para recargar la página
+  }
+
+  borrar(taskId: string) {
+   
+    
+    // Eliminar el registro después de guardar
+    this.tareasService.deleteTasks1(taskId).then(() => {
+      console.log('Documento eliminado');
+      this.message = 'Se ha eliminado correctamente';
+      this.task = this.task.filter((book: any) => book.id !== taskId);
+      this.guardar();
+this.recargarPagina();
+      setTimeout(() => this.message = null, 3000); // Ocultar mensaje después de 3 segundos
+    }).catch(error => {
+      console.log('Error al eliminar', error);
+    });
+  }
+
+    guardar(){
+    this.tareasService.addTask1(this.usuario);
+  }
+
   
 }

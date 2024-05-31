@@ -1,33 +1,46 @@
-<div class="container">
-  <div class="buscador">
-      <label for="buscador"></label>
-      <input type="text" id="buscador" placeholder="Titulo del libro*" [(ngModel)]="titulo" class="s-bar">
-      <input type="button" value="🔎 Buscar" (click)="buscarLibros()" class="s-button">
+<header>
+    <app-home></app-home>
+  </header>
+  <br>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <div class="main-container">
+    <div class="container">
+      <div class="buscador">
+          <label for="buscador"></label>
+          <input type="text" id="buscador" placeholder="Titulo del libro*" [(ngModel)]="titulo" class="s-bar">
+          <input type="button" value=" Buscar" (click)="buscarLibros()" class="s-button">
+      </div>
+  
+      <div class="content">
+          @if (libros != []) {
+              <ul>
+                  @for (libro of libros; track libro) {
+                      <li class="libro-item">
+                          <div class="libros-content">
+                            @if (libro.imageLinks != undefined) {
+                                  <div class="libro-image">
+                                      <img src="{{ libro.imageLinks.smallThumbnail}}" alt="imagen de libro">
+                                      <input type="button" value="Agregar Libro" class="button" (click)="guardarLibro(libro.title,libro.publisher, libro.description)">
+                                  </div>
+                                  <div class="libro-details">
+                                      <h2 class="libro-title">{{ libro.title }}</h2>
+                                      <br>
+                                      <h4 class="libro-publisher">{{ libro.publisher }}</h4>
+                                      <br>
+                                      <p class="libro-description">{{ libro.description }}</p>
+                                  </div>
+                              } 
+                          </div>
+                      </li>
+                  }
+              </ul>
+          }
+      </div>
+    </div>
   </div>
-
-  <div class="content">
-      @if (libros != []) {
-          <ul>
-              @for (libro of libros; track libro) {
-                  <li>
-                      <div class="libros-content">
-                        @if (libro.imageLinks != undefined) {
-                              <div class="libro-image">
-                                  <img src="{{ libro.imageLinks.smallThumbnail}}" alt="imagen de libro">
-                                  <input type="button" value="Agregar Libro" class="button" (click)="guardarLibro(libro.title,libro.publisher, libro.description)">
-                              </div>
-                              <div class="libro-details">
-                                  <h2>{{ libro.title }}</h2>
-                                  <br>
-                                  <h4>{{ libro.publisher }}</h4>
-                                  <br>
-                                  <p>{{ libro.description }}</p>
-                              </div>
-                          } 
-                      </div>
-                  </li>
-              }
-          </ul>
-      }
-  </div>
-</div>
+  

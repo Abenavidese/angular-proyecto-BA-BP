@@ -63,5 +63,6 @@ export class EditarComponent implements OnInit {
         console.error("Error al modificar el libro: ", error);
       });
     }
+
     
   }

@@ -4,5 +4,6 @@ export class users {
     lastname!: string
     names!: string
     role!: string
+    contrasenia!: string
 
 }

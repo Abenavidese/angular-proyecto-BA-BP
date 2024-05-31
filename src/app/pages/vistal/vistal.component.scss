@@ -1,0 +1,102 @@
+/* Estilos generales */
+body {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.main-container {
+    width: 80%;
+    background-color: #fff; /* Fondo blanco para el contenido */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para un mejor contraste */
+    color: #000; /* Texto negro dentro del contenedor */
+}
+
+/* Estilos del buscador */
+.buscador {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.s-bar {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    color: #000; /* Texto negro dentro del input */
+    width: 275px;
+}
+
+.s-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilos del contenido */
+.content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.libro-item {
+    display: flex;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.libros-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.libro-image img {
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+.libro-details {
+    max-width: 600px;
+}
+
+.libro-title {
+    margin: 0;
+    font-size: 24px;
+    color: #000; /* Título en negro */
+}
+
+.libro-publisher {
+    margin: 0;
+    font-size: 18px;
+    color: #555; /* Color gris oscuro para el publisher */
+}
+
+.libro-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #000; /* Descripción en negro */
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #218838;
+}

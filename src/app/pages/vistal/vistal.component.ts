@@ -21,9 +21,7 @@ export default class VistalComponent {
 
   constructor(private booksService: BookService, private fireStoreService: MensajeService) { }
 
-  ngOnInit(): void {
 
-  }
 
   buscarLibros() {
     this.libros = []
@@ -38,14 +36,17 @@ export default class VistalComponent {
     })
     this.titulo = ''
   }
-  guardarLibro(title:any, publisher: any,  description: any) {
-    this.libro = new Tasks()
-    this.libro.title = title
-    this.libro.publisher = publisher 
-    this.libro.descripcion = description
+
+  guardarLibro(title: any, publisher: any, description: any) {
+    this.libro = new Tasks();
+    this.libro.title = title ?? ''; // Si title es null o undefined, asignar una cadena vacía
+    this.libro.publisher = publisher ?? ''; // Si publisher es null o undefined, asignar una cadena vacía
+    this.libro.descripcion = description ?? ''; // Si description es null o undefined, asignar una cadena vacía
     this.fireStoreService.addTask(this.libro)
-    alert('libro agregado correctamente')
-    this.libro = undefined
+  
+  }
+  
+  ngOnInit(): void {
   }
 
   }

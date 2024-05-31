@@ -15,7 +15,7 @@
   </button>
   <nav class="header_nav" [ngClass]="{'header_nav--activo': active}">
     <ul class="header__ul">
-      <li  *ngIf="isAdmin" class="header__li" ><a [routerLink]="'/anadir'">Añadir nuevos libros</a></li>
+      
       <li *ngIf="isAdmin" class="header__li"><a [routerLink]="'/editar'">Editar los libros</a></li>
       <li *ngIf="isAdmin" class="header__li"><a [routerLink]="'/eliminar'">Eliminar libros</a></li>
 
