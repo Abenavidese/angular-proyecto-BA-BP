@@ -1,37 +1,35 @@
 <header>
-    <app-home></app-home>
-  </header>
+  <app-home></app-home>
+</header>
 
-  <button class="btn-recargar" (click)="recargarPagina()">Recargar Usuarios</button>
-  <div class="contenedor">
-    <h2 class="centrar-texto mb-4">Editar Usuarios</h2>
+<div class="contenedor">
+  <h2 class="centrar-texto mb-4">Editar Usuarios</h2>
 
-
-    @for (book of task; track book.id) {
-      <div class="tarjeta">
-        <div class="form-row">
-          <div class="form-container">
-            <label for="editar-email-{{book.id}}">Email:</label>
-            <li><strong>Email:</strong> {{book.email}}</li>
-            <input type="text" class="campo-formulario" id="editar-email-{{book.id}}" placeholder="Escribe el email..." [(ngModel)]="usuario.email">
-          </div>
-          <div class="form-container">
-            <label for="editar-lastname-{{book.id}}">Last Name:</label>
-            <li><span><strong>Last Name:</strong> {{book.lastname}}</span></li>
-            <input type="text" class="campo-formulario" id="editar-lastname-{{book.id}}" placeholder="Ingrese el apellido" [(ngModel)]="usuario.lastname">
-          </div>
-          <div class="form-container">
-            <label for="editar-names-{{book.id}}">Name:</label>
-            <li><span><strong>Name:</strong> {{book.names}}</span></li>
-            <input type="text" class="campo-formulario" id="editar-names-{{book.id}}" placeholder="Ingrese el nombre" [(ngModel)]="usuario.names">
-          </div>
-          <div class="form-container">
-            <label for="editar-role-{{book.id}}">Role:</label>
-            <li><span><strong>Role:</strong> {{book.role}}</span></li>
-            <textarea class="campo-formulario" id="editar-role-{{book.id}}" rows="1" placeholder="Ingrese el rol" [(ngModel)]="usuario.role"></textarea>
-          </div>
+  @for (book of task; track book.id) {
+    <div class="tarjeta">
+      <div class="form-row">
+        <div class="form-container">
+          <label for="editar-email-{{book.id}}">Correo Electrónico:</label>
+          <li><strong>Email:</strong> {{book.email}}</li>
+          <input type="text" class="campo-formulario" id="editar-email-{{book.id}}" placeholder="Escribe el correo electrónico..." [(ngModel)]="usuario.email">
         </div>
-        <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
+        <div class="form-container">
+          <label for="editar-lastname-{{book.id}}">Apellido:</label>
+          <li><span><strong>Apellido:</strong> {{book.lastname}}</span></li>
+          <input type="text" class="campo-formulario" id="editar-lastname-{{book.id}}" placeholder="Ingrese el apellido" [(ngModel)]="usuario.lastname">
+        </div>
+        <div class="form-container">
+          <label for="editar-names-{{book.id}}">Nombre:</label>
+          <li><span><strong>Nombre:</strong> {{book.names}}</span></li>
+          <input type="text" class="campo-formulario" id="editar-names-{{book.id}}" placeholder="Ingrese el nombre" [(ngModel)]="usuario.names">
+        </div>
+        <div class="form-container">
+          <label for="editar-role-{{book.id}}">Rol:</label>
+          <li><span><strong>Rol:</strong> {{book.role}}</span></li>
+          <textarea class="campo-formulario" id="editar-role-{{book.id}}" rows="1" placeholder="Ingrese el rol" [(ngModel)]="usuario.role"></textarea>
+        </div>
       </div>
-    }
-  </div>
+      <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
+    </div>
+  }
+</div>

@@ -17,13 +17,13 @@ export class MensajeService {
     addDoc(collection(this.firestore, 'tareas'),Object.assign({},task))
   }
 
-  getTasks(){
-    return getDocs(query(collection(this.firestore, 'tareas')))
+  gettask() {
+    return getDocs(query(collection(this.firestore, 'tareas')));
   }
-
   deleteTasks(taskId: string) {
     return deleteDoc(doc(this.firestore, 'tareas', taskId))
   }
+ 
 
   addTask1(us: users){
     addDoc(collection(this.firestore, 'users'),Object.assign({},us))

@@ -1,24 +1,33 @@
-<header>
-    <app-home></app-home>
-  </header>
-  
-  <!-- Vista de la página de libros -->
-  <div class="catalog">
-    <h1>Books</h1>
-    <!-- Iteración sobre la lista de libros -->
-    <div class="book-container" *ngFor="let book of books" (click)="toggleDetails(book)">
-      <!-- Mostrar la portada del libro -->
-      <img [src]="book.coverUrl" alt="{{ book.title }} cover" class="book-cover">
-      <!-- Mostrar el título del libro -->
-      <h2>{{ book.title }}</h2>
-      <!-- Mostrar el autor del libro -->
-      <p><strong>Author:</strong> {{ book.author }}</p>
-      <!-- Mostrar el género del libro -->
-      <p><strong>Genre:</strong> {{ book.genre }}</p>
-      <!-- Mostrar la descripción completa o corta del libro según el estado -->
-      <p>
-        <strong>Description:</strong> {{ book.showDetails ? book.description : book.shortDescription }}
-      </p>
-    </div>
+<div class="container">
+  <div class="buscador">
+      <label for="buscador"></label>
+      <input type="text" id="buscador" placeholder="Titulo del libro*" [(ngModel)]="titulo" class="s-bar">
+      <input type="button" value="🔎 Buscar" (click)="buscarLibros()" class="s-button">
   </div>
-  
+
+  <div class="content">
+      @if (libros != []) {
+          <ul>
+              @for (libro of libros; track libro) {
+                  <li>
+                      <div class="libros-content">
+                        @if (libro.imageLinks != undefined) {
+                              <div class="libro-image">
+                                  <img src="{{ libro.imageLinks.smallThumbnail}}" alt="imagen de libro">
+                                  <input type="button" value="Agregar Libro" class="button" (click)="guardarLibro(libro.title,libro.publisher, libro.description)">
+                              </div>
+                              <div class="libro-details">
+                                  <h2>{{ libro.title }}</h2>
+                                  <br>
+                                  <h4>{{ libro.publisher }}</h4>
+                                  <br>
+                                  <p>{{ libro.description }}</p>
+                              </div>
+                          } 
+                      </div>
+                  </li>
+              }
+          </ul>
+      }
+  </div>
+</div>

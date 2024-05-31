@@ -1,44 +1,33 @@
 <header>
-<app-home></app-home>
+  <app-home></app-home>
 </header>
 <br>
 <br>
 <br>
 <br>
 
-<button class="btn-recargar" (click)="recargarPagina()">Recargar</button>
 <div class="contenedor">
-    <div class="tarjeta">
-      <h2 class="centrar-texto mb-4">Editar Libro</h2>
-      
+  <div class="tarjeta">
+    <h2 class="centrar-texto mb-4">Editar Libro</h2>
 
-      @for (book of task; track book.id) {
-      
-        <div class="grupo-form mb-3">
-          <label for="editar-titulo">Título:</label>
-          <li><strong>Titulo:</strong> {{book.title}}</li>
-          <input type="text" class="campo-formulario" id="editar-titulo" placeholder="Escribe el título..." [(ngModel)]="tasks.title">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="editar-autor">Autor:</label>
-          <li><span><strong>Autor:</strong> {{book.Autor}}</span></li>
-          <input type="text" class="campo-formulario" id="editar-autor" placeholder="Ingrese el nuevo nombre del autor" [(ngModel)]="tasks.Autor">
-        </div>
-        <div class="grupo-form mb-3">
-          <label for="editar-genero">Género:</label>
-          <li><span><strong>Genero:</strong> {{book.Genero}}</span></li>
-          <input type="text" class="campo-formulario" id="editar-genero" placeholder="Ingrese el nuevo género del libro" [(ngModel)]="tasks.Genero">
-        </div>
-        <div class="grupo-form mb-4">
-          <label for="editar-descripcion">Descripción:</label>
-          <li><span><strong>Descripcion:</strong> {{book.Descripcion}}</span></li>
-          <textarea class="campo-formulario" id="editar-descripcion" rows="3" placeholder="Ingrese una nueva descripción del libro" [(ngModel)]="tasks.Descripcion"></textarea>
-        </div>
-        <button (click)="borrar(book.id)" class="btn-primario">Guardar Cambios</button>
-
-        <hr>
-    
+    @for (book of task; track book.id) {
+      <div class="grupo-form mb-3">
+        <label for="editar-titulo-{{book.id}}">Título:</label>
+        <li><strong>Título:</strong> {{book.title}}</li>
+        <input type="text" class="campo-formulario" id="editar-titulo-{{book.id}}" placeholder="Escribe el título..." [(ngModel)]="book.title">
+      </div>
+      <div class="grupo-form mb-3">
+        <label for="editar-genero-{{book.id}}">Género:</label>
+        <li><span><strong>Género:</strong> {{book.publisher}}</span></li>
+        <input type="text" class="campo-formulario" id="editar-genero-{{book.id}}" placeholder="Ingrese el nuevo género del libro" [(ngModel)]="book.publisher">
+      </div>
+      <div class="grupo-form mb-4">
+        <label for="editar-descripcion-{{book.id}}">Descripción:</label>
+        <li><span><strong>Descripción:</strong> {{book.descripcion}}</span></li>
+        <textarea class="campo-formulario" id="editar-descripcion-{{book.id}}" rows="3" placeholder="Ingrese una nueva descripción del libro" [(ngModel)]="book.descripcion"></textarea>
+      </div>
+      <button (click)="borrarYGuardar(book.title, book.publisher, book.descripcion, book.id)" class="btn-primario">Guardar Cambios</button>
+      <hr>
     }
-    </div>
-  </div> 
-  
+  </div>
+</div>

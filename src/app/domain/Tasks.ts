@@ -1,7 +1,7 @@
 export class Tasks {
-    title!: string
-    Autor!: string
-    Genero!: string
-    Descripcion!: string
-
+    title: any
+    autor: any
+    publisher: any
+    descripcion: any
+    imageLink: any
 }
